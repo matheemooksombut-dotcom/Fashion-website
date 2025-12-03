@@ -128,3 +128,10 @@ a{
 a:hover{
     color: red;
 }
+img1 , img2  , img3 :hover {
+    transform: scale(0.5);
+    transition: 1s;
+}
+
+
+
