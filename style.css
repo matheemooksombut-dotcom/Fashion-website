@@ -149,3 +149,8 @@ a:hover{
    padding: 10px;
 }
 
+.content-wrapper-fashion{
+    max-width: 100%;
+    background-color: aliceblue;
+}
+
