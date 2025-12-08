@@ -158,7 +158,7 @@ a:hover{
 
 .content-about{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-template-rows: auto;
     background-color: rgb(238, 233, 233);
 }
@@ -183,7 +183,7 @@ a:hover{
 }
 
 .content-about-3{
-    grid-column-start: 3/3;
+    grid-column-start: 2/4;
     background-color: rgb(255, 255, 255);
     padding: 20px;
     width: 100px;
