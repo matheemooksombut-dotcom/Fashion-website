@@ -206,7 +206,7 @@ a:hover{
     border-radius: 30px;
     overflow: hidden; /* กันภาพเบลอเกินขอบ */
     padding: 50px;
-    padding-top: 100px;
+    padding-top: 60px;
    
     box-shadow: 5px 3px 8px black;
 }
@@ -227,7 +227,8 @@ a:hover{
 /* เนื้อหาอยู่ด้านบน ไม่โดนเบลอ */
 .main-about {
     position: relative;
-    
+    padding-top: 120px;
+    padding-left: 340px;
     z-index: 1;
     color: white;
     font-size: 100px;
@@ -236,4 +237,7 @@ a:hover{
     font-weight: 200;
     font-style: normal;
     text-shadow: 4px 3px 6px black;
+}
+.a{
+    color: black;
 }
