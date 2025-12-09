@@ -161,6 +161,8 @@ a:hover{
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: auto;
     background-color: rgb(238, 233, 233);
+    position: absolute;
+    width: 100%;
 }
 
 
@@ -181,7 +183,7 @@ a:hover{
     grid-column-start: 3;
     background-color: rgb(255, 255, 255);
     padding: 20px;
-    width:150%;
+    width:120%;
     height: 100px;
     margin-left: 20px;
     border-radius: 40px;
@@ -242,12 +244,18 @@ a:hover{
     color: black;
 }
 .botchat{
-   width: auto;
+   width: 100px;
    height: auto;
    background-color: aliceblue;
+    border-radius: 30px;
+    margin-left: 1340px;
+    /* s */
+    z-index: 1 ;
 }
 
 .botchat img{
+    /* position: relative; */
+   
     
      border-radius: 30px;
         width: 100%;
