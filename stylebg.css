@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(https://th.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-onthego-mm--M45321_PM1_Detail%20view.jpg);
+}
+
+.navbar-menu{
+    
+    max-width: 100%;
+    max-height: auto;
+   
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    background-color: black;
+    
+    
+}
+.logo img{
+    width: 150px;
+    height: 100px;
+}
+
+.menu-bar{
+    display: flex;
+    flex-direction: row; 
+    gap: 50px;
+    color: aliceblue;
+    list-style: none;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a  :hover {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+}
+
+
+.login-content-waper{
+   
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    height: auto;
+    margin-top: 60px;
+   
+}
+
+
+.login-content{
+    justify-content: center;
+    width: 500px;
+    height: 600px;
+    background-color: aliceblue;
+    border-radius: 60px;
+    text-align: center;
+     box-shadow: 3px 4px 3px black;
+}
+
+button{
+    background-color: blue; color: white; width: 100px; height: 40px; border-radius: 30px; cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(52, 148, 63);
+    color: white;
+    font-size: medium;
+    box-shadow: 4px 2px 3px rgb(238, 88, 0);
+}

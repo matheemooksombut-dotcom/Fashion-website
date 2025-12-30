@@ -1,20 +1,21 @@
 const express = require('express')
 const app = express()
 const bodyparser = require('body-parser')
-const mysql = require('mysql2/promise')
+const host  =  "localhost"
+// const mysql = require('mysql2/promise')
 const cors = require('cors')
 const port= 3000; 
 
 
-
+// Middel ware
 app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('Server is running!')
 })
 
-app.listen(3000, () => {
-  console.log(`🚀 Server is running at:`)
-  console.log(`   → Local:   http://localhost:3000`)
+app.listen(port,host, () => {
+  console.log(`🚀 Server is running at: http://${host}:${port}`)
+  
 })
 
