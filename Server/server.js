@@ -5,6 +5,7 @@ const PORT  = 3000||env
 const app  = express()
 
 let users = []
+let counter = 1
 
 // Midelware 
 app.use(bodyParser.json())
@@ -12,7 +13,10 @@ app.use(cors())
 
 
 
+// 
+app.put('/update:id', (req  ,res)=>{
 
+})
 
 
 
