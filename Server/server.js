@@ -14,9 +14,25 @@ app.use(cors())
 
 
 // 
-app.put('/update:id', (req  ,res)=>{
+app.put('/update/:id', (req  ,res)=>{
+  let id  = req.params.id
+  let updateUser  = req.body
+  
 
-})
+  let selectedIndex  = users.findIndex(user => user.id==id)
+
+
+  users[selectedIndex].Firstname = updateUser.Firstname ||   users[selectedIndex].Firstname
+  users[selectedIndex].Lastname = updateUser.Lastname ||  users[selectedIndex].Lastname
+
+  res.json({
+    message:'Updated suceess',
+    data:{
+      user:updateUser  , 
+      indexUpdated: selectedIndex 
+    }
+  })
+  })
 
 
 
@@ -25,6 +41,8 @@ app.put('/update:id', (req  ,res)=>{
 // เพิ่ม 
 app.post('/adduser'  , (req  , res) =>{
   let user = req.body
+  user.id  = counter
+  counter++
   users.push(user)
   res.json(
     {
