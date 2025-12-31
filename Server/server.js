@@ -1,21 +1,45 @@
-const express = require('express')
-const app = express()
-const bodyparser = require('body-parser')
-const host  =  "localhost"
-// const mysql = require('mysql2/promise')
-const cors = require('cors')
-const port= 3000; 
+const express   = require("express")
+const bodyParser   = require("body-parser")
+const cors  = require("cors")
+const PORT  = 3000||env 
+const app  = express()
 
+let users = []
 
-// Middel ware
+// Midelware 
+app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.send('Server is running!')
+
+
+
+
+
+
+// Route 
+
+// เพิ่ม 
+app.post('/adduser'  , (req  , res) =>{
+  let user = req.body
+  users.push(user)
+  res.json(
+    {
+      message : "suceess" , 
+      users : user
+    }
+  )
 })
 
-app.listen(port,host, () => {
-  console.log(`🚀 Server is running at: http://${host}:${port}`)
-  
+// เรียกดู
+app.get('/users', (req , res) =>{
+  res.json(users)
 })
 
+
+
+
+
+// 
+app.listen(PORT  , (req  , res )=>{
+  console.log(`http://localhost:${PORT}`)
+})
