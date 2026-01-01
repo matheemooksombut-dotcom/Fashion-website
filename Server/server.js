@@ -3,9 +3,20 @@ const bodyParser   = require("body-parser")
 const cors  = require("cors")
 const PORT  = 3000||env 
 const app  = express()
+const mysql = require('mysql2/promise')
+const { error } = require("console")
+let conn = null
 
-let users = []
-let counter = 1
+const initMySQL =  async () => {
+ conn = await mysql.createConnection({
+      host: 'localhost' , 
+      user:'root' , 
+      password:'root' , 
+      database: 'user' , 
+      port:3306
+    })
+}
+
 
 // Midelware 
 app.use(bodyParser.json())
@@ -16,69 +27,118 @@ app.use(cors())
 
 
 
+
+
+
+
 // Route 
 
-// เรียกดู user ตาม ID
-app.get('/user/:id' , (req , res) =>{
-  let id = req.params.id
-
-  let selectedIndex = users.findIndex(user => user.id ==id)
-
-  res.json(users[selectedIndex])
-})
 
 
 // เรียกดู user ทั้งหมด
-app.get('/users', (req , res) =>{
-  
-  res.json(users)
+app.get('/users'  , async(req , res)=>{
+  try{
+      
+    const results  = await conn.query('SELECT * FROM users')
+    res.json(results[0])
+
+  }catch(error){
+    console.error('Error fetching users:' , error.message)
+    res.status(500).json({erro: 'Error fetching users'})
+    
+  }
+
+})
+
+
+
+// เรียกดู user ตาม ID
+app.get('/user/:id' , async (req , res) =>{
+
+ try{
+  let id = req.params.id
+  let results  = await conn.query('SELECT * FROM user WHERE id = ? ' , id)
+
+  if(results[0].length > 0 ){
+    res.json(results[0][0])
+  }else{
+    res.status(404).json({
+      message: 'DATA NOT FOUND'
+    })
+  }
+  res.json(results[0][0])
+ }catch(erro){
+    console.error('error message' , error.message)
+    res.status(500).json({
+      message: 'something wrong'
+    })
+ }
 })
 
 
 // เพิ่ม 
-app.post('/adduser'  , (req  , res) =>{
-  let user = req.body
-  user.id  = counter
-  counter++
-  users.push(user)
-  res.json(
-    {
-      message : "suceess" , 
-      users : user
-    }
-  )
+app.post('/adduser'  , async (req  , res) =>{
+
+  try{
+      let  user  =  req.body
+      const results  =  await conn.query('INSERT INTO users SET ?' , user)
+      res.json({
+        message: 'insert ok' , 
+        data: results[0]
+      })
+  }catch(erro){
+    res.status(500).json({
+      message: 'something wrong' 
+    })
+  }
+})
+
+
+// Deleaated
+app.delete('/users/:id' , async(req , res)=>{
+ 
+
+  try{
+    let id = req.params.id
+    const results = await conn.query('DELETE from users WHERE id = ?', id)
+    res.json({
+      message: 'delete ok' , 
+      data: results[0]
+    })
+  }catch(erro){
+    console.error('error message' , error.message)
+    res.status(500).json({
+      message:'somthing wrong'
+    })
+  }
+
 })
 
 
 
 
 // อัพเดท User
-app.put('/update/:id', (req  ,res)=>{
-  let id  = req.params.id
-  let updateUser  = req.body
-  
+app.put('/update/:id', async (req  ,res)=>{
+ 
+  try{
+      let id  = req.params.id
+      let updateUser  = req.body
+      const results  =  await conn.query('UPDATE users SET ? WHERE id = ?' ,
+        [updateUser , id])
+      res.json({
+        message: 'Updated Success' , 
+        data: results[0]
+      })
+  }catch(erro){
+    res.status(500).json({
+      message: 'something wrong' 
+    })
+  }
 
-  let selectedIndex  = users.findIndex(user => user.id==id)
-
-
-  users[selectedIndex].Firstname = updateUser.Firstname ||   users[selectedIndex].Firstname
-  users[selectedIndex].Lastname = updateUser.Lastname ||  users[selectedIndex].Lastname
-
-  res.json({
-    message:'Updated suceess',
-    data:{
-      user:updateUser  , 
-      indexUpdated: selectedIndex 
-    }
   })
-  })
 
-
-
-
-
-
-// 
-app.listen(PORT  , (req  , res )=>{
+//  Running Website
+app.listen(PORT  , async (req  , res )=>{
+  await initMySQL()
   console.log(`http://localhost:${PORT}`)
 })
