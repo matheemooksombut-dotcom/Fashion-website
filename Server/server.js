@@ -13,7 +13,46 @@ app.use(cors())
 
 
 
-// 
+
+
+
+// Route 
+
+// เรียกดู user ตาม ID
+app.get('/user/:id' , (req , res) =>{
+  let id = req.params.id
+
+  let selectedIndex = users.findIndex(user => user.id ==id)
+
+  res.json(users[selectedIndex])
+})
+
+
+// เรียกดู user ทั้งหมด
+app.get('/users', (req , res) =>{
+  
+  res.json(users)
+})
+
+
+// เพิ่ม 
+app.post('/adduser'  , (req  , res) =>{
+  let user = req.body
+  user.id  = counter
+  counter++
+  users.push(user)
+  res.json(
+    {
+      message : "suceess" , 
+      users : user
+    }
+  )
+})
+
+
+
+
+// อัพเดท User
 app.put('/update/:id', (req  ,res)=>{
   let id  = req.params.id
   let updateUser  = req.body
@@ -34,28 +73,6 @@ app.put('/update/:id', (req  ,res)=>{
   })
   })
 
-
-
-// Route 
-
-// เพิ่ม 
-app.post('/adduser'  , (req  , res) =>{
-  let user = req.body
-  user.id  = counter
-  counter++
-  users.push(user)
-  res.json(
-    {
-      message : "suceess" , 
-      users : user
-    }
-  )
-})
-
-// เรียกดู
-app.get('/users', (req , res) =>{
-  res.json(users)
-})
 
 
 
