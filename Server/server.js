@@ -78,25 +78,8 @@ app.get('/user/:id' , async (req , res) =>{
 
 // เพิ่ม 
 app.post('/adduser', async (req, res) => {
-  try {
-    const { User_name, password, Firtname, Lastname } = req.body
+  console.log(req.body) // รับข้อมูลจาก frontend
 
-    const [result] = await conn.query(
-      'INSERT INTO user (User_name, password, Firtname, Lastname) VALUES (?, ?, ?, ?)',
-      [User_name, password, Firtname, Lastname]
-    )
-
-    res.json({
-      message: 'insert ok',
-      insertId: result.insertId
-    })
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({
-      message: 'something wrong',
-      error: error.message
-    })
-  }
 })
 
 

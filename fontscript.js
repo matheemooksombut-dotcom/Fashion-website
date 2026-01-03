@@ -2,25 +2,20 @@
 
 
 // Register     Dom
-function RegisterDom(){
-   
-   
-    return{
-        UsernameDom  : document.querySelector('.Username').value,
-        passwordDom  : document.querySelector('.Password').value,
-        confrimePasswordDom  : document.querySelector('.ConfrimePassword').value,
-        FirstnameDom  : document.querySelector('.Firstname').value,
-        LastnameDom  :document.querySelector('.Lastname').value
-    }
-    
-   
-}
-const submitData = async()=>{
-    
+const submitData = async () => {
+  const data = RegisterDom()
 
-    const userData = RegisterDom();
-    console.log("userData:", userData);
+  if (data.passwordDom !== data.confrimePasswordDom) {
+    alert('Password ไม่ตรงกัน')
+    return
+  }
 
-    // connect to  backend
-     await axios.post('http://localhost:8000/users', userData)
+  const payload = {
+    User_name: data.UsernameDom,
+    password: data.passwordDom,
+    Firtname: data.FirstnameDom,
+    Lastname: data.LastnameDom
+  }
+
+  await axios.post('http://localhost:3000/adduser', payload)
 }
