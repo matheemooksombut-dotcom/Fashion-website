@@ -21,6 +21,6 @@ function submitData(){
     const userData = RegisterDom();
     console.log("userData:", userData);
 
-    // ตัวอย่างต่อ backend
-    // axios.post('/register', userData)
+    // connect to  backend
+    axios.post('http://localhost:8000/users', userData)
 }
