@@ -15,8 +15,7 @@ function RegisterDom(){
     let Firstname  = document.querySelector('.Firstname').value
     let Lastname  = document.querySelector('.Lastname').value
 
-   
-    
+
 }
 
 
