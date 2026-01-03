@@ -11,7 +11,7 @@ const submitData = async () => {
   }
 
   const payload = {
-    User_name: data.UsernameDom,
+    Username: data.UsernameDom,
     password: data.passwordDom,
     Firtname: data.FirstnameDom,
     Lastname: data.LastnameDom
