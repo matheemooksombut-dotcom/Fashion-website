@@ -8,18 +8,22 @@
 function RegisterDom(){
    
    
-
-    let Username  = document.querySelector('.Username').value
-    let password  = document.querySelector('.Password').value
-    let confrimePassword  = document.querySelector('.ConfrimePassword').value
-    let Firstname  = document.querySelector('.Firstname').value
-    let Lastname  = document.querySelector('.Lastname').value
-
-
+    return{
+        UsernameDom  : document.querySelector('.Username').value,
+        passwordDom  : document.querySelector('.Password').value,
+        confrimePasswordDom  : document.querySelector('.ConfrimePassword').value,
+        FirstnameDom  : document.querySelector('.Firstname').value,
+        LastnameDom  :document.querySelector('.Lastname').value
+    }
+    
+   
 }
+function submitData(){
+    
 
+    const userData = RegisterDom();
+    console.log("userData:", userData);
 
-
-
-
-
+    // ตัวอย่างต่อ backend
+    // axios.post('/register', userData)
+}
