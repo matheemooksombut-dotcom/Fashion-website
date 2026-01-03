@@ -1,9 +1,6 @@
 // DOM -/
 
 
-
-
-
 // Register     Dom
 function RegisterDom(){
    
