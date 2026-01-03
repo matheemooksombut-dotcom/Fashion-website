@@ -77,21 +77,28 @@ app.get('/user/:id' , async (req , res) =>{
 
 
 // เพิ่ม 
-app.post('/adduser'  , async (req  , res) =>{
+app.post('/adduser', async (req, res) => {
+  try {
+    const { User_name, password, Firtname, Lastname } = req.body
 
-  try{
-      let  user  =  req.body
-      const results  =  await conn.query('INSERT INTO users SET ?' , user)
-      res.json({
-        message: 'insert ok' , 
-        data: results[0]
-      })
-  }catch(erro){
+    const [result] = await conn.query(
+      'INSERT INTO user (User_name, password, Firtname, Lastname) VALUES (?, ?, ?, ?)',
+      [User_name, password, Firtname, Lastname]
+    )
+
+    res.json({
+      message: 'insert ok',
+      insertId: result.insertId
+    })
+  } catch (error) {
+    console.error(error)
     res.status(500).json({
-      message: 'something wrong' 
+      message: 'something wrong',
+      error: error.message
     })
   }
 })
+
 
 
 // Deleaated
@@ -100,7 +107,7 @@ app.delete('/users/:id' , async(req , res)=>{
 
   try{
     let id = req.params.id
-    const results = await conn.query('DELETE from users WHERE id = ?', id)
+    const results = await conn.query('DELETE from user WHERE id = ?', id)
     res.json({
       message: 'delete ok' , 
       data: results[0]
@@ -123,7 +130,7 @@ app.put('/update/:id', async (req  ,res)=>{
   try{
       let id  = req.params.id
       let updateUser  = req.body
-      const results  =  await conn.query('UPDATE users SET ? WHERE id = ?' ,
+      const results  =  await conn.query('UPDATE user SET ? WHERE id = ?' ,
         [updateUser , id])
       res.json({
         message: 'Updated Success' , 

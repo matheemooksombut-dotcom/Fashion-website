@@ -15,12 +15,12 @@ function RegisterDom(){
     
    
 }
-function submitData(){
+const submitData = async()=>{
     
 
     const userData = RegisterDom();
     console.log("userData:", userData);
 
     // connect to  backend
-    axios.post('http://localhost:8000/users', userData)
+     await axios.post('http://localhost:8000/users', userData)
 }
