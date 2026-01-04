@@ -1,7 +1,7 @@
 const express   = require("express")
 const bodyParser   = require("body-parser")
 const cors  = require("cors")
-const PORT  = 3000||env 
+const PORT = process.env.PORT || 3000
 const app  = express()
 const mysql = require('mysql2/promise')
 const { error } = require("console")
@@ -39,7 +39,7 @@ app.use(cors())
 app.get('/users'  , async(req , res)=>{
   try{
       
-    const results  = await conn.query('SELECT * FROM users')
+    const results  = await conn.query('SELECT * FROM user')
     res.json(results[0])
 
   }catch(error){
@@ -66,7 +66,7 @@ app.get('/user/:id' , async (req , res) =>{
       message: 'DATA NOT FOUND'
     })
   }
-  res.json(results[0][0])
+  
  }catch(erro){
     console.error('error message' , error.message)
     res.status(500).json({
@@ -78,8 +78,30 @@ app.get('/user/:id' , async (req , res) =>{
 
 // เพิ่ม 
 app.post('/adduser', async (req, res) => {
-  console.log(req.body) // รับข้อมูลจาก frontend
+  try {
+    const user = req.body
 
+    const result = await conn.query(
+      'INSERT INTO user (Username, Password, Firstname, Lastname) VALUES (?, ?, ?, ?)',
+      [
+        user.Username,
+        user.Password,
+        user.Firstname,
+        user.Lastname
+      ]
+    )
+
+    res.json({
+      message: 'Add user success',
+      userId: result[0].insertId
+    })
+
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).json({
+      message: 'Add user failed'
+    })
+  }
 })
 
 
