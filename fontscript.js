@@ -5,16 +5,16 @@
 const submitData = async () => {
   const data = RegisterDom()
 
-  if (data.passwordDom !== data.confrimePasswordDom) {
+  if (data.Password !== data.ConfrimePassword) {
     alert('Password ไม่ตรงกัน')
     return
   }
 
   const payload = {
-    Username: data.UsernameDom,
-    password: data.passwordDom,
-    Firtname: data.FirstnameDom,
-    Lastname: data.LastnameDom
+    Username: data.Username,
+    Password: data.Password,
+    Firstname: data.Firstname,
+    Lastname: data.Lastname
   }
 
   try{
