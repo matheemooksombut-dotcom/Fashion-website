@@ -17,5 +17,12 @@ const submitData = async () => {
     Lastname: data.LastnameDom
   }
 
-  await axios.post('http://localhost:3000/adduser', payload)
+  try{
+    await axios.post('http://localhost:3000/adduser', payload)
+    alert('สมัครสมาชิกสำเร็จ')
+  }catch(err){
+    console.error(err)
+    alert('ส่งข้อมูลไม่สำเร็จ')
+  }
+  
 }
