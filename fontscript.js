@@ -2,7 +2,8 @@
 
 
 // Register     Dom
-const submitData = async () => {
+const submitData = async (e) => {
+  e.preventDefault()
   const data = RegisterDom()
 
   if (data.Password !== data.ConfrimePassword) {
@@ -20,6 +21,9 @@ const submitData = async () => {
   try{
     await axios.post('http://localhost:3000/adduser', payload)
     alert('สมัครสมาชิกสำเร็จ')
+
+
+    e.target.reset()
   }catch(err){
     console.error(err)
     alert('ส่งข้อมูลไม่สำเร็จ')
