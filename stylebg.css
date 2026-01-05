@@ -84,3 +84,7 @@ input:hover{
 input{
     border-style: none;
 }
+
+.login-content{
+    margin-top: 20px;
+}

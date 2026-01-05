@@ -19,8 +19,8 @@ const submitData = async (e) => {
 
   const data = RegisterDom()
 
-  if (data.Password !== data.ConfrimePassword) {
-    alert('Password ไม่ตรงกัน')
+  if (data.Password !== data.ConfrimePassword)  {
+    alert('Password ไม่ตรงกัน ❗️')
     return
   }
 
@@ -38,12 +38,12 @@ const submitData = async (e) => {
       }
     })
 
-    alert('สมัครสมาชิกสำเร็จ')
+    alert('สมัครสมาชิกสำเร็จ ✅')
     e.target.reset()
 
   } catch (err) {
     console.error(err)
-    alert('ส่งข้อมูลไม่สำเร็จ')
+    alert('ส่งข้อมูลไม่สำเร็จ ❌ กรุณาลองใหม่')
   }
 }
 
