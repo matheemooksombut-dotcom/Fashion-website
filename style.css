@@ -514,6 +514,49 @@ a:hover{
    background-color: black;
    
 }
+.detailproduct-wrapper{
+    width: 100%;
+    height: auto;
+}
 
 
+.detail{
+    
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+    
+}
 
+.content-product-1{
+    grid-column: 1/2;
+    width: 100%;
+    height: 500px;
+    
+}
+
+.content-product-1 img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+
+.content-product-2{
+    width: 100%;
+    height: 500px;
+    background-color: white;
+    border-radius: 80px;
+
+}
+
+
+.content-product-3{
+    margin-top: 100px;
+    width: 100%;
+    height: 500px;
+    background-color: white;
+    border-radius: 80px;
+    grid-column: 1 / 3;
+   
+}
