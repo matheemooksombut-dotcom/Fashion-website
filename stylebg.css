@@ -76,3 +76,11 @@ button:hover{
     font-size: medium;
     box-shadow: 4px 2px 3px rgb(238, 88, 0);
 }
+input:hover{
+    box-shadow: 5px 2px 3px black;
+}
+
+
+input{
+    border-style: none;
+}

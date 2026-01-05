@@ -197,7 +197,7 @@ a:hover{
 .maincontent-about{
     width: auto;
     height: auto;
-    background-color: rgb(238, 233, 233);
+    background-color: rgb(255, 255, 255);
     padding: 100px;
 }
 .main-about-content {
@@ -244,28 +244,28 @@ a:hover{
     color: black;
 }
 .botchat{
-   width: 100px;
-   height: auto;
-   background-color: aliceblue;
-    border-radius: 30px;
-    margin-left: 1340px;
-    /* s */
-    z-index: 1 ;
+    margin-top: 30px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    position: fixed;
+    z-index: 3;
+    
 }
 
 .botchat img{
-    /* position: relative; */
-   
-    
-     border-radius: 30px;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-}
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
-.item-grid{
+}
+.botcaht-wrrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: right;
+}
+grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: auto;
@@ -507,3 +507,5 @@ a:hover{
    background-color: black;
    
 }
+
+
