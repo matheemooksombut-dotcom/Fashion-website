@@ -56,6 +56,10 @@ const submitData = async (e) => {
     icon: 'success',
     confirmButtonText: 'เข้าสู่ระบบ',
     confirmButtonColor: '#000'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        window.location.href ='/login.html'
+      }
     })
 
     
