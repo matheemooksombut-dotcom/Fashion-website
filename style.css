@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=BBH+Hegarty&family=Cinzel:wght@400..900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body{
     margin: 0;
@@ -634,4 +635,33 @@ a:hover{
     border: none;
     background: transparent;
     color: black;
+}
+
+
+
+
+.login-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+.login-title{
+   margin-top: -50px; 
+  width: 600px;
+  height: 600px;
+  border-radius: 60px;
+  background-color: #00000063;
+ 
+  text-align: center;
+  padding-top: 30px;
+     font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+   
+
 }
