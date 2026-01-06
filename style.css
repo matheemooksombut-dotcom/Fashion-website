@@ -691,3 +691,30 @@ a:hover{
 .PasswordInput:hover{
      box-shadow: 3px 3px 4px rgb(211, 3, 3);
 }
+.btn-login{
+     width: 100px;
+    height: 45px;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+
+
+.btn-login:hover{
+     width: 100px;
+    height: 45px;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(130, 0, 0);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}

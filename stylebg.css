@@ -71,10 +71,11 @@ button{
 }
 
 button:hover{
-    background-color: rgb(52, 148, 63);
-    color: white;
+    background-color: rgb(255, 0, 0);
+    color: aliceblue;
     font-size: medium;
-    box-shadow: 4px 2px 3px rgb(238, 88, 0);
+    box-shadow: 4px 2px 3px rgb(0, 34, 255);
+    font-size: medium;
 }
 input:hover{
     box-shadow: 5px 2px 3px black;
