@@ -2,13 +2,18 @@
 
 
 
-// DOM -/
+// DOM -/------>
+
+// Login Dom
+function Login(){
+  return{
+    Username: document.querySelector('.UsernameInput').value,
+    Password: document.querySelector('.PasswordInput').value
+  }
+}
 
 
-
-
-// Register     Dom
-// ดึงค่าจาก input
+// Register Dom
 function RegisterDom() {
   return {
     Username: document.querySelector('.Username').value,
@@ -16,6 +21,18 @@ function RegisterDom() {
     ConfrimePassword: document.querySelector('.ConfrimePassword').value,
     Firstname: document.querySelector('.Firstname').value,
     Lastname: document.querySelector('.Lastname').value
+  }
+}
+
+
+// Submit Login 
+const loginData  = async (e)  =>{
+  e.preventDefault()
+  const login =  Login()
+  const data =   RegisterDom()
+
+  if(login.Username == data.Username){
+    window.location.href="./serversite/Homepage.html"
   }
 }
 
@@ -38,10 +55,12 @@ const submitData = async (e) => {
   }
 
   const payload = {
+    
     Username: data.Username,
     Password: data.Password,
     Firstname: data.Firstname,
     Lastname: data.Lastname
+    
   }
 
   try {
