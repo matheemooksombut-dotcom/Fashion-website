@@ -5,7 +5,7 @@
 // DOM -/------>
 
 // Login Dom
-function Login(){
+function LoginDom(){
   return{
     Username: document.querySelector('.UsernameInput').value,
     Password: document.querySelector('.PasswordInput').value
@@ -28,12 +28,10 @@ function RegisterDom() {
 // Submit Login 
 const loginData  = async (e)  =>{
   e.preventDefault()
-  const login =  Login()
-  const data =   RegisterDom()
+  const login =  LoginDom()
+  
 
-  if(login.Username == data.Username){
-    window.location.href="./serversite/Homepage.html"
-  }
+ 
 }
 
 // submit form
