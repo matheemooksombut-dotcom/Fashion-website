@@ -13,7 +13,7 @@
                 <img src="https://media.designrush.com/inspiration_images/732076/conversions/Louis-Vuitton-Logo-SVG-desktop.jpg" alt="">
             </div>
         <ul class="menu-bar">
-                <a href="../index.html"><li>Fashion</li></a>
+                <a href="../index.html"><li>Home</li></a>
                 <a href="contract.html"><li>Contract</li></a>
                 <a href="about.html"><li>About</li></a>
                 <a href="https://www.instagram.com/"><li><i class="fa-brands fa-instagram fa-lg"></i></li></a>
@@ -36,16 +36,24 @@
                
                <h2>Monogram Mink Blouson</h2>
                 <form action="">
-                    <span>จำนวน :</span> <input style="text-align: center; border: none; margin-top: 100px; font-size: larger; width: 200px;" type="number" value="1" min="1" max="99" readonly><span>ชิ้น</span>
+                    <span>จำนวน :</span> <input class="qty-item" style="text-align: center; border: none; margin-top: 100px; font-size: larger; width: 200px;" type="number" value="1" min="1" max="99" readonly><span>ชิ้น</span>
                     <br>
                     <br>
-                    <span>ราคา  :</span> <input style="text-align: center; border: none;  font-size: larger; width: 200px;" type="number" value="895000"  readonly > <span>บาท</span>
+                    <span>ราคา  :</span> <input class="price" style="text-align: center; border: none;  font-size: larger; width: 200px;" type="number" value="895000"  readonly > <span>บาท</span>
 
                     <div class="qty-control">
-                        <button class="qty-btn minus">−</button>
+                        <button type="button" class="qty-btn minus">−</button>
                         <input class="qty-input" type="text" value="1" readonly>
-                        <button class="qty-btn plus">+</button>
+                        <button type="button" class="qty-btn plus">+</button>
+                        
+
+
+
+        
                     </div>
+                    <button type="submit" class="add">สั่งสินค้า</button>
+
+                    
 
 
 
@@ -70,6 +78,6 @@
 
 
 
-    
+    <script src="/sitescript.js"></script>
 </body>
 </html>

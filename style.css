@@ -579,6 +579,27 @@ a:hover{
     margin-top: 100px;
     
 }
+.add{
+    width: 100px;
+    height: 45px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-top: 60px;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+.add:hover{
+    background-color: #b30000;
+    transform: scale(1.1);
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
 
 .qty-btn{
     width: 45px;
@@ -593,6 +614,9 @@ a:hover{
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
+
+
+
 
 .qty-btn:hover{
     background-color: #b30000;
