@@ -33,50 +33,35 @@ app.use(cors())
 
 // Route 
 
-
-
-// เรียกดู user ทั้งหมด
-app.get('/users'  , async(req , res)=>{
-  try{
-      
-    const results  = await conn.query('SELECT * FROM user')
-    res.json(results[0])
-
-  }catch(error){
-    console.error('Error fetching users:' , error.message)
-    res.status(500).json({erro: 'Error fetching users'})
-    
-  }
-
+// Login 
+app.post('/login' , async (req , res)=>{
+  try {
+    const user = req.body
+      const results = await conn.query('SELECT * FROM user WHERE Username = ? AND Password = ?' , [user.Username , user.Password])
+      if(results[0].length > 0){
+        res.json({
+          message: 'Login success',
+          user: results[0][0]
+        })
+      } else {
+        res.status(401).json({
+          message: 'Invalid Username or Password'
+        })
+      }
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ message: 'Internal Server Error' })
+    }
 })
 
 
 
-// เรียกดู user ตาม ID
-app.get('/user/:id' , async (req , res) =>{
-
- try{
-  let id = req.params.id
-  let results  = await conn.query('SELECT * FROM user WHERE id = ? ' , id)
-
-  if(results[0].length > 0 ){
-    res.json(results[0][0])
-  }else{
-    res.status(404).json({
-      message: 'DATA NOT FOUND'
-    })
-  }
-  
- }catch(erro){
-    console.error('error message' , error.message)
-    res.status(500).json({
-      message: 'something wrong'
-    })
- }
-})
 
 
-// เพิ่ม 
+
+
+
+// Register  
 app.post('/adduser', async (req, res) => {
   try {
     const user = req.body
@@ -129,25 +114,7 @@ app.delete('/users/:id' , async(req , res)=>{
 
 
 
-// อัพเดท User
-app.put('/update/:id', async (req  ,res)=>{
- 
-  try{
-      let id  = req.params.id
-      let updateUser  = req.body
-      const results  =  await conn.query('UPDATE user SET ? WHERE id = ?' ,
-        [updateUser , id])
-      res.json({
-        message: 'Updated Success' , 
-        data: results[0]
-      })
-  }catch(erro){
-    res.status(500).json({
-      message: 'something wrong' 
-    })
-  }
 
-  })
 
 //  Running Website
 app.listen(PORT  , async (req  , res )=>{

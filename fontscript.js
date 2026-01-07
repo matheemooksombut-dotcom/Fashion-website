@@ -30,12 +30,36 @@ const loginData  = async (e)  =>{
   e.preventDefault()
   const login =  LoginDom()
   
+  try {
+     await axios.post('http://localhost:3000/login', login) 
+      Swal.fire({
+        title: 'เข้าสู่ระบบสำเร็จ ✅',
+        text: '',
+        icon: 'success',
+        confirmButtonText: 'ตกลง',
+        confirmButtonColor: '#000'
+      
+      }).then(()=>{
+        window.location.href ='./serversite/Homepage.html'
+      })
+      
+    
+  } catch (error) {
+    Swal.fire({
+      title: 'เข้าสู่ระบบไม่สำเร็จ ❌ ',
+      text: 'กรุณาลองใหม่',
+      icon: 'error',
+      confirmButtonText: 'ตกลง',
+      confirmButtonColor: '#000'
+         
+  })
 
- 
+}
 }
 
-// submit form
-const submitData = async (e) => {
+
+// Register form
+const RegisterData = async (e) => {
   e.preventDefault()
 
   const data = RegisterDom()
