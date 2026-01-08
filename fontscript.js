@@ -40,7 +40,7 @@ const loginData  = async (e)  =>{
         confirmButtonColor: '#000'
       
       }).then(()=>{
-        window.location.href ='./serversite/Homepage.html'
+        window.location.replace('./serversite/Homepage.html')
       })
       
     
@@ -119,4 +119,3 @@ const RegisterData = async (e) => {
     
   }
 }
-
