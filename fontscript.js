@@ -63,8 +63,26 @@ const RegisterData = async (e) => {
   e.preventDefault()
 
   const data = RegisterDom()
-
-  if (data.Password !== data.ConfrimePassword)  {
+  // Validation
+  if(data.Username === ""){
+     Swal.fire({
+    title: 'คุณไม่ได้กรอก Username❗️ ',
+    text: 'กรุณาลองใหม่',
+    icon: 'error',
+    confirmButtonText: 'ตกลง',
+    confirmButtonColor: '#000'
+    })
+    return
+  }else if(data.Password.length < 8){
+     Swal.fire({
+    title: 'รหัสผ่านต้องมากกว่า 8 ตัวอักษร❗️ ',
+    text: 'กรุณาลองใหม่',
+    icon: 'error',
+    confirmButtonText: 'ตกลง',
+    confirmButtonColor: '#000'
+    })
+    return
+  }else if (data.Password !== data.ConfrimePassword)  {
     Swal.fire({
     title: 'Password ไม่ตรงกัน ❗️ ',
     text: 'กรุณาลองใหม่',
@@ -72,9 +90,37 @@ const RegisterData = async (e) => {
     confirmButtonText: 'ตกลง',
     confirmButtonColor: '#000'
     })
-    
+    return
+  }else if(data.Firstname === ""){
+     Swal.fire({
+    title: 'คุณไม่ได้กรอก Firstnamename❗️ ',
+    text: 'กรุณาลองใหม่',
+    icon: 'error',
+    confirmButtonText: 'ตกลง',
+    confirmButtonColor: '#000'
+    })
+    return
+  }else if(data.Lastname === ""){
+     Swal.fire({
+    title: 'คุณไม่ได้กรอก Lastname❗️ ',
+    text: 'กรุณาลองใหม่',
+    icon: 'error',
+     confirmButtonText: 'ตกลง',
+    confirmButtonColor: '#000'
+    })
     return
   }
+  else if(Object.values(data).includes("")){
+     Swal.fire({
+    title: 'กรุณากรอกข้อมูลให้ครบถ้วน ❗️ ',
+    text: 'กรุณาลองใหม่',
+    icon: 'error',
+    confirmButtonText: 'ตกลง',
+    confirmButtonColor: '#000'
+    })
+    return
+  }
+
 
   const payload = {
     
@@ -91,6 +137,9 @@ const RegisterData = async (e) => {
         'Content-Type': 'application/json'
       }
     })
+    // if(){
+      
+    // }
     Swal.fire({
     title: 'สมัครสมาชิกสำเร็จ ✅',
     text: '',
@@ -101,6 +150,8 @@ const RegisterData = async (e) => {
       if(result.isConfirmed){
         window.location.href ='/login.html'
       }
+        
+      
     })
 
     
