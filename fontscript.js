@@ -65,6 +65,7 @@ const RegisterData = async (e) => {
   const data = RegisterDom()
   // Validation
   if(data.Username === ""){
+  if(Object.values(data).includes("")){
      Swal.fire({
     title: 'คุณไม่ได้กรอก Username❗️ ',
     text: 'กรุณาลองใหม่',
