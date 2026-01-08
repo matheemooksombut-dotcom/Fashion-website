@@ -73,7 +73,26 @@ const RegisterData = async (e) => {
     confirmButtonColor: '#000'
     })
     return
-  }else if(data.Password.length < 8){
+  }else if(data.Password === "" ){
+       Swal.fire({
+    title: 'กรุณากรอกรหัสผ่าน❗️ ',
+    text: 'กรุณาลองใหม่',
+    icon: 'error',
+    confirmButtonText: 'ตกลง',
+    confirmButtonColor: '#000'
+    })
+    return
+  }else if(data.ConfrimePassword === ""){
+     Swal.fire({
+    title: 'กรุณากรอกยืนยันรหัสผ่าน❗️ ',
+    text: 'กรุณาลองใหม่',
+    icon: 'error',
+    confirmButtonText: 'ตกลง',
+    confirmButtonColor: '#000'
+    })
+    return
+  }
+  else if(data.Password.length < 8){
      Swal.fire({
     title: 'รหัสผ่านต้องมากกว่า 8 ตัวอักษร❗️ ',
     text: 'กรุณาลองใหม่',
