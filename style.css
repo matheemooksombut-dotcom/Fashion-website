@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=BBH+Hegarty&family=Cinzel:wght@400..900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=BBH+Hegarty&family=Cinzel:wght@400..900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=BBH+Hegarty&family=Cinzel:wght@400..900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 body{
     margin: 0;
     padding: 0;
@@ -220,6 +221,41 @@ a:hover{
     filter: blur(12px);
     transform: scale(1.1); /* ป้องกันขอบเบลอ */
     z-index: 0;
+}
+
+.wrapper-home{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.content-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    text-align: center;
+    color: aliceblue;
+    
+    padding: 50px;
+    
+}
+.wrapper-home::before{
+    
+    background-image: url(https://www.sellierknightsbridge.com/cdn/shop/articles/AdobeStock_544759729_Editorial_Use_Only_613eee95-40d5-4be3-8c39-5a58fdeadc71.jpg?v=1668771633);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    z-index: -1;
+    position: absolute;
+    content: "";
+    inset: 0;
+    
+        
+    
+
+    
 }
 
 /* เนื้อหาอยู่ด้านบน ไม่โดนเบลอ */
@@ -570,9 +606,8 @@ a:hover{
 .add{
     width: 100px;
     height: 45px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
-    margin-top: 20px;
+   
+    margin-top: 30px;
     border: none;
     font-size: 24px;
     font-weight: bold;
@@ -584,9 +619,12 @@ a:hover{
 }
 .add:hover{
     background-color: #b30000;
+    border-radius: 10px;
     transform: scale(1.1);
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+}
+.add:active{
+    transform: scale(0.95);
+   
 }
 
 .qty-btn{
@@ -640,6 +678,58 @@ a:hover{
     
 }
 
+.wrapper-user-info {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* layer background */
+.wrapper-user-info::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/29/9d/1c/louis-vuitton-store-at.jpg?w=900&h=500&s=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(6px);
+  transform: scale(1.05); /* กันขอบแตก */
+  z-index: -1;
+}
+
+
+.div-user-info{
+    font-size: x-large;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.4);
+    width: 1000px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 30px;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
 .login-title{
    margin-top: 40px; 
   width: 600px;
@@ -647,7 +737,7 @@ a:hover{
   border-radius: 60px;
   backdrop-filter: blur(10px);
   background: rgba(130, 115, 115, 0.4);
- 
+  color: rgb(255, 255, 255);
   text-align: center;
   padding-top: 30px;
   font-family: "Cinzel", serif;
@@ -710,3 +800,5 @@ a:hover{
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
+
+
