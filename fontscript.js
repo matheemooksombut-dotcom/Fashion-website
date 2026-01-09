@@ -4,6 +4,22 @@
 
 // DOM -/------>
 
+
+
+
+// PostUserInformation 
+function PostUserDom(){
+  return{
+    User_Id:document.querySelector('PostUserID')  , 
+    Username:document.querySelector('PostUsername')   , 
+    Firstname:document.querySelector('PostFirstname')  , 
+    Lastname:document.querySelector('PostLastname')   , 
+    
+
+  }
+
+}
+
 // Login Dom
 function LoginDom(){
   return{
