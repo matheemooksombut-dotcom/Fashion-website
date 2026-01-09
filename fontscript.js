@@ -189,4 +189,5 @@ const RegisterData = async (e) => {
     })
     
   }
+  }
 }
