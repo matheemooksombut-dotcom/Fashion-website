@@ -41,6 +41,8 @@ function RegisterDom() {
 }
 
 
+
+
 // Submit Login 
 const loginData  = async (e)  =>{
   e.preventDefault()
@@ -206,4 +208,17 @@ const RegisterData = async (e) => {
     
   }
   }
+}
+
+// Get User
+const getUser = async (e) => {
+  e.preventDefault()
+  const InfoUser = PostUserDom()
+  try {
+    
+
+
+}catch{
+  
+}
 }

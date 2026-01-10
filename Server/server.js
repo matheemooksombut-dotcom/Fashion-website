@@ -110,6 +110,21 @@ app.delete('/users/:id' , async(req , res)=>{
   }
 
 })
+// Get User เรียก user มาแสดง หน้า Info
+app.get('/users/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const results = await conn.query('SELECT * FROM user WHERE id = ?', [id])
+    if (results[0].length > 0) {
+      res.json(results[0][0])
+    } else {
+      res.status(404).json({ message: 'User not found' })
+    }
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+})
 
 
 
