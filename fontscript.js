@@ -10,10 +10,10 @@
 // PostUserInformation 
 function PostUserDom(){
   return{
-    User_Id:document.querySelector('PostUserID')  , 
-    Username:document.querySelector('PostUsername')   , 
-    Firstname:document.querySelector('PostFirstname')  , 
-    Lastname:document.querySelector('PostLastname')   , 
+    User_Id:document.querySelector('.PostUserID').value  , 
+    Username:document.querySelector('.PostUsername').value   , 
+    Firstname:document.querySelector('.PostFirstname').value  , 
+    Lastname:document.querySelector('.PostLastname').value   , 
     
 
   }
@@ -215,10 +215,12 @@ const getUser = async (e) => {
   e.preventDefault()
   const InfoUser = PostUserDom()
   try {
+    await axios.get(`http://localhost:3000/users/${InfoUser.User_Id}`)
+    
     
 
 
-}catch{
-  
+}catch(error){
+  console.error(error)
 }
 }

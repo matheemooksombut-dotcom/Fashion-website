@@ -30,10 +30,10 @@
                 <div class="log">
                     <h2>Login</h2>
                     <br>
-                    <input  placeholder="Username" type="text" class="UsernameInput">
+                    <input  placeholder="Username" type="text" class="UsernameInput" oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')">
                     <br>
                     <br>
-                    <input  placeholder="Password" type="password" class="PasswordInput">
+                    <input  placeholder="Password" type="password" class="PasswordInput" oninput="this.value  = this.value.replace(/[^a-zA-Z0-9]/g, '')">
 
                 </div>
                 <br>
