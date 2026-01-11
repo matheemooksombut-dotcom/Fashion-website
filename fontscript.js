@@ -218,6 +218,12 @@ const getUser = async (e) => {
     await axios.get(`http://localhost:3000/users/${InfoUser.User_Id}`)
     
     
+    
+
+    // นำข้อมูลที่ได้จาก Server มาใส่กลับเข้าไปใน Input
+    document.querySelector('.PostUsername').value = userData.Username
+    document.querySelector('.PostFirstname').value = userData.Firstname
+    document.querySelector('.PostLastname').value = userData.Lastname
 
 
 }catch(error){
