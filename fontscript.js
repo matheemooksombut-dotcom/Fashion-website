@@ -49,7 +49,13 @@ const loginData  = async (e)  =>{
   const login =  LoginDom()
   
   try {
-     await axios.post('http://localhost:3000/login', login) 
+     const response = await axios.post('http://localhost:3000/login', login) 
+     
+     // บันทึก ID ลง LocalStorage เพื่อนำไปใช้หน้าอื่น
+     if(response.data && response.data.user && response.data.user.id){
+        localStorage.setItem('currentUserId', response.data.user.id)
+     }
+
       Swal.fire({
         title: 'เข้าสู่ระบบสำเร็จ ✅',
         text: '',
@@ -211,23 +217,31 @@ const RegisterData = async (e) => {
 }
 
 // Get User
-const getUser = async (e) => {
-  e.preventDefault()
-  const InfoUser = PostUserDom()
+const getUser = async () => {
+  // ดึง ID จาก LocalStorage 
+  const userId = localStorage.getItem('currentUserId')
+  if(!userId) return; // ถ้าไม่มี ID (ยังไม่ Login) ให้จบการทำงาน
+
   try {
-    const response = await axios.get(`http://localhost:3000/users/${InfoUser.User_Id}`)
+    const response = await axios.get(`http://localhost:3000/users/${userId}`)
     const userData = response.data
     
     
     
 
-    // นำข้อมูลที่ได้จาก Server มาใส่กลับเข้าไปใน Input
-    document.querySelector('.PostUsername').value = userData.Username
-    document.querySelector('.PostFirstname').value = userData.Firstname
-    document.querySelector('.PostLastname').value = userData.Lastname
+    // นำข้อมูลที่ได้จาก Server มาใส่กลับเข้าไปใน <span></span>
+    if(document.querySelector('.PostUserID')) document.querySelector('.PostUserID').innerText = userData.id || userId
+    if(document.querySelector('.PostUsername')) document.querySelector('.PostUsername').innerText = userData.Username || userData.username || "-"
+    if(document.querySelector('.PostFirstname')) document.querySelector('.PostFirstname').innerText = userData.Firstname || userData.firstname || "-"
+    if(document.querySelector('.PostLastname')) document.querySelector('.PostLastname').innerText = userData.Lastname || userData.lastname || "-"
 
 
 }catch(error){
   console.error(error)
 }
+}
+
+// เรียกใช้ฟังก์ชันอัตโนมัติถ้าอยู่ในหน้า UserInfo
+if(document.querySelector('.wrapper-user-info')){
+  getUser()
 }
