@@ -10,10 +10,10 @@
 // PostUserInformation 
 function PostUserDom(){
   return{
-    User_Id:document.querySelector('.PostUserID').value  , 
-    Username:document.querySelector('.PostUsername').value   , 
-    Firstname:document.querySelector('.PostFirstname').value  , 
-    Lastname:document.querySelector('.PostLastname').value   , 
+    User_Id:document.querySelector('.PostUserID').innerText  , 
+    Username:document.querySelector('.PostUsername').innerText   , 
+    Firstname:document.querySelector('.PostFirstname').innerText  , 
+    Lastname:document.querySelector('.PostLastname').innerText   , 
     
 
   }
@@ -241,6 +241,8 @@ const getUser = async () => {
 }
 
 // เรียกใช้ฟังก์ชันอัตโนมัติถ้าอยู่ในหน้า UserInfo
-if(document.querySelector('.wrapper-user-info')){
-  getUser()
-}
+document.addEventListener('DOMContentLoaded', () => {
+  if(document.querySelector('.wrapper-user-info')){
+    getUser()
+  }
+})
