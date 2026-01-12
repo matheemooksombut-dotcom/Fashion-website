@@ -215,7 +215,8 @@ const getUser = async (e) => {
   e.preventDefault()
   const InfoUser = PostUserDom()
   try {
-    await axios.get(`http://localhost:3000/users/${InfoUser.User_Id}`)
+    const response = await axios.get(`http://localhost:3000/users/${InfoUser.User_Id}`)
+    const userData = response.data
     
     
     
