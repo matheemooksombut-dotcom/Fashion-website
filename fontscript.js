@@ -52,8 +52,15 @@ const loginData  = async (e)  =>{
      const response = await axios.post('http://localhost:3000/login', login) 
      
      // บันทึก ID ลง LocalStorage เพื่อนำไปใช้หน้าอื่น
-     if(response.data && response.data.user && response.data.user.id){
-        localStorage.setItem('currentUserId', response.data.user.id)
+     if(response.data && response.data.user){
+        console.log("Login Response User:", response.data.user); // Debug: ดูข้อมูลที่ได้จาก Server
+        // รองรับทั้ง id ตัวเล็กและตัวใหญ่ และ User_id แบบต่างๆ (เผื่อ Database ส่งมาเป็น user_id หรือ User_ID)
+        const userId = response.data.user.User_Id || response.data.user.user_id || response.data.user.User_ID || response.data.user.id || response.data.user.ID;
+        
+        if(userId) {
+            localStorage.setItem('currentUserId', userId)
+            console.log("Saved UserID to LocalStorage:", userId);
+        }
      }
 
       Swal.fire({
@@ -219,17 +226,20 @@ const RegisterData = async (e) => {
 const getUser = async () => {
   // ดึง ID จาก LocalStorage 
   const userId = localStorage.getItem('currentUserId')
-  if(!userId) return; // ถ้าไม่มี ID (ยังไม่ Login) ให้จบการทำงาน
+  console.log('Current User ID:', userId); // Debug: ดูว่ามี ID หรือไม่
+
 
   try {
     const response = await axios.get(`http://localhost:3000/users/${userId}`)
     const userData = response.data
     
+    console.log('User Data from Server:', userData); // Debug: ดูข้อมูลที่ได้จาก Server
     
     
 
     // นำข้อมูลที่ได้จาก Server มาใส่กลับเข้าไปใน <span></span>
-    if(document.querySelector('.PostUserID')) document.querySelector('.PostUserID').innerText = userData.id || userId
+    // เช็ค key หลายรูปแบบเพื่อให้แน่ใจว่าดึงค่าได้
+    if(document.querySelector('.PostUserID')) document.querySelector('.PostUserID').innerText = userData.User_Id || userData.user_id || userData.user_ID || userData.id || userId || "-"
     if(document.querySelector('.PostUsername')) document.querySelector('.PostUsername').innerText = userData.Username || userData.username || "-"
     if(document.querySelector('.PostFirstname')) document.querySelector('.PostFirstname').innerText = userData.Firstname || userData.firstname || "-"
     if(document.querySelector('.PostLastname')) document.querySelector('.PostLastname').innerText = userData.Lastname || userData.lastname || "-"
@@ -242,7 +252,8 @@ const getUser = async () => {
 
 // เรียกใช้ฟังก์ชันอัตโนมัติถ้าอยู่ในหน้า UserInfo
 document.addEventListener('DOMContentLoaded', () => {
-  if(document.querySelector('.wrapper-user-info')){
+  // เช็ค wrapper หรือเช็คว่ามี element ที่จะแสดงผลอยู่จริงไหม (เผื่อลืมใส่ class wrapper)
+  if(document.querySelector('.wrapper-user-info') || document.querySelector('.PostUserID')){
     getUser()
   }
 })

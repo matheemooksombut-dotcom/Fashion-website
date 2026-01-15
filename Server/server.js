@@ -1,4 +1,5 @@
 const express   = require("express")
+
 const bodyParser   = require("body-parser")
 const cors  = require("cors")
 const PORT = process.env.PORT || 3000
@@ -97,12 +98,13 @@ app.delete('/users/:id' , async(req , res)=>{
 
   try{
     let id = req.params.id
-    const results = await conn.query('DELETE from user WHERE id = ?', id)
+    // แก้ไข WHERE id เป็น WHERE User_id ให้ตรงกับ Database
+    const results = await conn.query('DELETE from user WHERE User_id = ?', id)
     res.json({
       message: 'delete ok' , 
       data: results[0]
     })
-  }catch(erro){
+  }catch(error){
     console.error('error message' , error.message)
     res.status(500).json({
       message:'somthing wrong'
@@ -114,7 +116,7 @@ app.delete('/users/:id' , async(req , res)=>{
 app.get('/users/:id', async (req, res) => {
   try {
     const id = req.params.id
-    const results = await conn.query('SELECT * FROM user WHERE id = ?', [id])
+    const results = await conn.query('SELECT * FROM user WHERE User_id = ?', [id])
     if (results[0].length > 0) {
       res.json(results[0][0])
     } else {
