@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(https://th.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-onthego-mm--M45321_PM1_Detail%20view.jpg);
+}
+
+.navbar-menu{
+    
+    max-width: 100%;
+    max-height: auto;
+   
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    background-color: black;
+    
+    
+}
+.logo img{
+    width: 150px;
+    height: 100px;
+}
+
+.menu-bar{
+    display: flex;
+    flex-direction: row; 
+    gap: 50px;
+    color: aliceblue;
+    list-style: none;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a  :hover {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+}
+
+
+.login-content-waper{
+   
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    height: auto;
+    margin-top: 60px;
+   
+}
+
+
+
+
+.login-content{
+    justify-content: center;
+    width: 500px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 60px;
+    text-align: center;
+    color: white;
+     
+     backdrop-filter: blur(20px);
+}
+
+button{
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); width: 100px; height: 40px; border-radius: 30px; cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(255, 0, 0);
+    color: aliceblue;
+    font-size: medium;
+    
+    font-size: medium;
+}
+input:hover{
+    box-shadow: 5px 2px 3px rgb(255, 255, 255);
+}
+
+
+input{
+    border-style: none;
+}
+
+.login-content{
+    margin-top: 20px;
+}

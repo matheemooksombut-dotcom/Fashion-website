@@ -70,16 +70,26 @@ minusBtn.onclick = () => {
         if (prevBtn && nextBtn && productImg) {
         prevBtn.addEventListener('click', () => {
             // ลด index ลง 1 ถ้าเป็น 0 ให้วนไปรูปสุดท้าย
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1 && previewimg.length-1;
-            productImg.src = images[currentIndex] , 
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            productImg.src = images[currentIndex];
             previewproduct.src = previewimg[currentIndex];
+
+            // Restart animation
+            previewproduct.classList.remove('fade-in');
+            void previewproduct.offsetWidth;
+            previewproduct.classList.add('fade-in');
         });
 
         nextBtn.addEventListener('click', () => {
             // เพิ่ม index ขึ้น 1 ถ้าถึงรูปสุดท้ายให้วนกลับไปรูปแรก
-            currentIndex = (currentIndex < images.length - 1 && currentIndex < previewimg.length -1 && previewimg.length-1) ? currentIndex + 1 : 0;
-            productImg.src = images[currentIndex] , 
+            currentIndex = (currentIndex + 1) % images.length;
+            productImg.src = images[currentIndex];
             previewproduct.src = previewimg[currentIndex];
+
+            // Restart animation by removing and adding the class
+            previewproduct.classList.remove('fade-in');
+            void previewproduct.offsetWidth; // Force reflow
+            previewproduct.classList.add('fade-in');
         });
         }
 
