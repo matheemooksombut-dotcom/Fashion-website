@@ -802,3 +802,163 @@ a:hover{
 }
 
 
+.content-homepage-Wrapper{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    height: auto;
+    row-gap: 50px;
+    column-gap: 30px
+}
+
+
+
+.content-homepage-1{
+   
+    width: 500px;
+    height: 500px;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+   
+    
+}
+
+
+.content-homepage-2{
+   
+    width: 500px;
+    height: 500px;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-homepage-3{
+   
+    width: 500px;
+    height: 500px;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    
+}
+.content-homepage-4{
+   
+    width: 500px;
+    height: 500px;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.incontenthome-1{
+    width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+   
+
+}
+
+
+
+
+.incontenthome-2{
+    width: 300px;
+    height: 300px;
+    background-color: #b30000;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+   
+
+}
+
+
+
+.incontenthome-3{
+    width: 300px;
+    height: 300px;
+    background-color: #b30000;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+
+}
+
+
+
+.incontenthome-4{
+    width: 300px;
+    height: 300px;
+    background-color: #b30000;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+   
+
+}
+
+
+.incontenthome-1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+   
+
+}
+
+
+.incontenthome-2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+   
+
+}
+
+
+.incontenthome-3 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+   
+
+}
+
+.incontenthome-4 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+   
+
+}
