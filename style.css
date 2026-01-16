@@ -6,6 +6,8 @@ body{
     margin: 0;
     padding: 0;
     background-color: black;
+     opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 *{
     margin: 0;   
@@ -880,16 +882,23 @@ a:hover{
     
 }
 
-.homepage-img-2{
-    width: 300px;
-    height: 300px;
-    border-radius: 30px;    
-}
-.homepage-img-2 img{
+ .content-homepage-2 img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
+    border-radius: 30px;
+    background-repeat: no-repeat;
+}
+/* Animtion product */
+@keyframes fadedproduct{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
-
+.fade-in {
+    animation: fadedproduct 0.5s ease-in-out;
+}
