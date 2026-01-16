@@ -4,7 +4,13 @@
 
 // DOM -/------>
 
+//ProductItems 
+function ProductItemsDom(){
+  return{
+    Product_Id:document.querySelector('')
 
+  }
+}
 
 
 // PostUserInformation 
