@@ -29,4 +29,26 @@ minusBtn.onclick = () => {
 }
 
 
+  // รายการรูปภาพที่จะแสดงในสไลด์
+        const images = [
+            "https://th.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-mink-blouson--HUF20EAI9356_PM2_Front%20view.png?wid=1090&hei=1090",
+            "https://th.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-onthego-mm--M45321_PM2_Front%20view.jpg",
+            "https://th.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-embossed-suede-hoodie--HUL61ESXD866_PM2_Front%20view.png?wid=1090&hei=1090"
+        ];
 
+        let currentIndex = 0;
+        const productImg = document.getElementById('productImg');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        prevBtn.addEventListener('click', () => {
+            // ลด index ลง 1 ถ้าเป็น 0 ให้วนไปรูปสุดท้าย
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            productImg.src = images[currentIndex];
+        });
+
+        nextBtn.addEventListener('click', () => {
+            // เพิ่ม index ขึ้น 1 ถ้าถึงรูปสุดท้ายให้วนกลับไปรูปแรก
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            productImg.src = images[currentIndex];
+        });
