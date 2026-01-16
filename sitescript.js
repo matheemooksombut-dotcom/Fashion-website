@@ -82,3 +82,9 @@ minusBtn.onclick = () => {
             previewproduct.src = previewimg[currentIndex];
         });
         }
+
+         // รอให้หน้าเว็บโหลดเนื้อหาทั้งหมดเสร็จก่อน
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.body.style.opacity = 1;
+        });
