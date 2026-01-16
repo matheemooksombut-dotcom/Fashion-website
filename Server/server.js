@@ -55,6 +55,31 @@ app.post('/login' , async (req , res)=>{
     }
 })
 
+//PostProduct
+app.post('/addproduct', async (req, res) => {
+  try {
+    const product = req.body
+
+    const result = await conn.query(
+      'INSERT INTO product (Productname, ProductPrice) VALUES (?, ?)',
+      [
+        product.Productname,
+        product.ProductPrice
+      ]
+    )
+
+    res.json({
+      message: 'Add product success',
+      productId: result[0].insertId
+    })
+
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).json({
+      message: 'Add product failed'
+    })
+  }
+})
 
 
 

@@ -6,8 +6,14 @@
 
 //ProductItems 
 function ProductItemsDom(){
+  const priceText = document.querySelector('.product-price').innerText
+  // ใช้ Regex ลบทุกอย่างที่ไม่ใช่ตัวเลข 0-9 หรือจุด (.) ออก (เช่น ลบ ฿ และ ,)
+  const cleanPrice = priceText.replace(/[^0-9.]/g, '')
+
   return{
-    Product_Id:document.querySelector('')
+    Productname:document.querySelector('.product-name').innerText,
+    ProductPrice: cleanPrice
+
 
   }
 }
@@ -45,6 +51,21 @@ function RegisterDom() {
     Lastname: document.querySelector('.Lastname').value
   }
 }
+
+//Product Items
+const ProductItems = async (e) =>{
+  e.preventDefault()
+  const product = ProductItemsDom()
+  try {
+    const response = await axios.post('http://localhost:3000/addproduct', product)
+    console.log(response.data)
+
+}catch(error){
+  console.error(error)
+}
+}
+
+
 
 
 
