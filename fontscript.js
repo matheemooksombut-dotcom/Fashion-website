@@ -4,7 +4,7 @@
 
 // DOM -/------>
 
-//ProductItems 
+//ProductItems  Dom
 function ProductItemsDom(){
   const priceText = document.querySelector('.product-price').innerText
   // ใช้ Regex ลบทุกอย่างที่ไม่ใช่ตัวเลข 0-9 หรือจุด (.) ออก (เช่น ลบ ฿ และ ,)
@@ -19,7 +19,7 @@ function ProductItemsDom(){
 }
 
 
-// PostUserInformation 
+// PostUserInformation  Dom
 function PostUserDom(){
   return{
     User_Id:document.querySelector('.PostUserID').innerText  , 
