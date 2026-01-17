@@ -76,7 +76,8 @@ app.post('/addproduct', async (req, res) => {
   } catch (error) {
     console.error(error.message)
     res.status(500).json({
-      message: 'Add product failed'
+      message: 'Add product failed',
+      error: error.message
     })
   }
 })
