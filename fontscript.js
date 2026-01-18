@@ -6,17 +6,39 @@
 
 //ProductItems  Dom
 function ProductItemsDom(){
-  const priceText = document.querySelector('.product-price').innerText
+  document.querySelector('.product-name').innerText
   // ใช้ Regex ลบทุกอย่างที่ไม่ใช่ตัวเลข 0-9 หรือจุด (.) ออก (เช่น ลบ ฿ และ ,)
-  const cleanPrice = priceText.replace(/[^0-9.]/g, '')
+ 
 
   return{
     Productname:document.querySelector('.product-name').innerText,
-    ProductPrice: cleanPrice
+    
 
 
   }
 }
+
+
+// เพิ่มสินค้าลงตระกร้า
+
+document.querySelectorAll('.add-product-btn').forEach(btn =>{
+  btn.addEventListener('click' ,async(e) =>{
+  const product  =  ProductItemsDom()
+   try{
+     const res =  await axios.post('http://localhost:3000/addproduct', product)
+      console.log(res.data)
+
+      Swal.fire('เพิ่มสินค้าแล้ว ✅')
+  }catch(err){
+     console.error(err)
+      Swal.fire('เพิ่มสินค้าไม่สำเร็จ ❌')
+
+  }
+  
+  })
+ 
+  
+})
 
 
 // PostUserInformation  Dom
@@ -52,18 +74,6 @@ function RegisterDom() {
   }
 }
 
-//Product Items
-const ProductItems = async (e) =>{
-  e.preventDefault()
-  const product = ProductItemsDom()
-  try {
-    const response = await axios.post('http://localhost:3000/addproduct', product)
-    console.log(response.data)
-
-}catch(error){
-  console.error(error)
-}
-}
 
 
 
